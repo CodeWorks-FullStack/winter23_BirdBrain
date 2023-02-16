@@ -6,20 +6,53 @@ export class Bird {
     this.size = data.size;
     this.img = data.img;
     this.creatorId = data.creatorId;
+    // NOTE WATCHER INFORMATION
+    this.watcherId = data.watcherId;
+    this.watchCount = data.watchCount;
+    this.watcher = data.watcher;
   }
 
+  // ACTIVE BIRD CARD
+  get ActiveTemplate() {
+    return /*html*/ `
+            <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">${this.name}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body container-fluid">
+          <div class="row">
+            <div class="col-8">
+              <img class="birdModalImage" src="${this.img}" alt="">
+            </div>
+            <div class="col-4">
+            <h1>${this.name}</h1>
+             <h5>Can it fly?: ${this.canFly == true ? "👍" : "👎"}</h5>
+             <h6>Size: ${this.size}</h6>
+             <div class="d-flex" id="watchers">
+
+             </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn bird-btn-green" data-bs-dismiss="modal">Done Watching</button>
+        </div>`;
+  }
+
+  // BIRD CARD
   get birdCardTemplate() {
     //                                                    MAKE SURE THIS HAS QUOTES vvvvvvvvv
     return /*html*/ `
-    <div class="col-12 col-md-3 p-4  my-2" onclick="app.birdsController.setActive('${this.id}')">
-    <div class="birdCard">
-          <img class="birdImage" src="${this.img}" alt="">
-          <h2>${this.name}</h2>
-          <div>
-            <img class="profilePic" src="https://thiscatdoesnotexist.com" alt="">
-          </div>
-          </div>
+    <div class="col-12 col-md-4 p-5 mb-5">
+        <div class="birdCard">
+          <img class="birdImage selectable" src="${this.img}" data-bs-toggle="modal" data-bs-target="#birdModal" onclick="app.birdsController.setActive('${this.id}')" alt="">
+         <h1 class="p-3">${this.name}</h1>
+        <div class="d-flex justify-content-between align-items-end p-2 px-3 pb-4">
+        <button class="fs-3 creep-count btn pe-2" onclick="app.birdWatchersController.watchBird('${this.id}')">👀 ${this.watchCount}</button>
+        <img class="watcherImage" src="${this.watcher?.picture}" title="${this.watcher?.name}" alt="">
+      </div>
         </div>
+      </div>
     `;
   }
 

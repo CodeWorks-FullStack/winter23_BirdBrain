@@ -7,6 +7,7 @@ class BirdsService {
     console.log("BIRDID", birdId);
     let bird = appState.birds.find((bird) => bird.id == birdId);
     console.log("SETTING ACTIVE BIRD", bird);
+    appState.activeBird = bird;
   }
   async reportBird(birdBody) {
     const res = await server.post("api/birds", birdBody);

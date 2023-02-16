@@ -13,11 +13,16 @@ function _drawBirds() {
 
 // DRAW ACTIVE BIRD
 
+function _drawActive() {
+  setHTML("birdContent", appState.activeBird.ActiveTemplate);
+}
+
 export class BirdsController {
   constructor() {
     console.log("HELLO FROM THE BIRDS CONTROLLER");
     this.getBirds();
     appState.on("birds", _drawBirds);
+    appState.on("activeBird", _drawActive);
   }
 
   async getBirds() {
