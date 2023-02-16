@@ -4,6 +4,11 @@
 @import "./custom.scss";
 @import "./loaders.scss";
 
+// NOTE IN ORDER TO GET YOUR STYLES OT LOAD: TYPE THESE COMMANDS INTO YOUR TERMINAL
+// NOTE MAKE SURE YOU CD INTO YOUR CLIENT FOLDER
+// run npm i bootstrap
+// npm run sass
+
 body {
   display: flex;
   flex-direction: column;
@@ -13,7 +18,31 @@ body {
 
 main {
   flex-grow: 1;
+  // background-color: skyblue;
 }
+
+// BIRD CARD \\
+
+.birdCard {
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px black;
+  .birdCardImage{
+    height: 25vh;
+    width: 100%;
+    border-top-right-radius: 5%;
+    border-top-left-radius: 5%;
+  }
+}
+
+
+.profilePic {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
 
 
 
