@@ -14,3 +14,18 @@ export const BirdSchema = new Schema(
   },
   { timestamps: true, toJSON: { virtuals: true } }
 );
+
+
+BirdSchema.virtual('Creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Account'
+})
+
+BirdSchema.virtual('watchCount', {
+  localField: '_id',
+  foreignField: 'birdId',
+  ref: 'Watcher',
+  count: true
+})

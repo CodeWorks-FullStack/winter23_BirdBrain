@@ -6,6 +6,8 @@ import { BadRequest } from "../utils/Errors.js"
 class BirdsService{
   async getBirdById(birdId) {
     const bird = await dbContext.Birds.findById(birdId)
+    .populate('Creator', 'name picture')
+    .populate('watchCount')
     if(!bird){
       throw new BadRequest("Bird not found!")
     }
@@ -14,12 +16,14 @@ class BirdsService{
 
   async createBird(birdData) {
     const newBird = await dbContext.Birds.create(birdData)
+    await newBird.populate('Creator watchCount', 'name picture')
     return newBird
   }
 
   async getAllBirds(){
     const birds = await dbContext.Birds.find()
-    // NOTE add in additional information 
+    .populate('Creator', 'name picture')
+    .populate('watchCount')
     return birds
   }
 }
