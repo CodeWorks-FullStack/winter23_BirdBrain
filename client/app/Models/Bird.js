@@ -9,7 +9,7 @@ export class Bird {
     // NOTE WATCHER INFORMATION
     this.watcherId = data.watcherId;
     this.watchCount = data.watchCount;
-    this.watcher = data.watcher;
+    this.watcher = data.Creator;
   }
 
   // ACTIVE BIRD CARD
