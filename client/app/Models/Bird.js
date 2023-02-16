@@ -28,8 +28,7 @@ export class Bird {
             <h1>${this.name}</h1>
              <h5>Can it fly?: ${this.canFly == true ? "👍" : "👎"}</h5>
              <h6>Size: ${this.size}</h6>
-             <div class="d-flex" id="watchers">
-
+             <div class="d-flex gap-2 flex-wrap" id="watchers">
              </div>
             </div>
           </div>

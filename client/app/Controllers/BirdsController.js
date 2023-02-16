@@ -58,9 +58,9 @@ export class BirdsController {
     }
   }
 
-  setActive(birdId) {
+  async setActive(birdId) {
     try {
-      birdsService.setActiveBird(birdId);
+      await birdsService.setActiveBird(birdId);
     } catch (error) {
       console.error(error);
       // @ts-ignore
