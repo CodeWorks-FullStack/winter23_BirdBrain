@@ -9,6 +9,7 @@ export class Bird {
   }
 
   get birdCardTemplate() {
+    //                                                    MAKE SURE THIS HAS QUOTES vvvvvvvvv
     return /*html*/ `
     <div class="col-12 col-md-3 p-4  my-2" onclick="app.birdsController.setActive('${this.id}')">
     <div class="birdCard">
