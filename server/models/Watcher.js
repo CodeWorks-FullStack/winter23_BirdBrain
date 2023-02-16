@@ -4,11 +4,18 @@ import { Schema } from "mongoose";
 
 export const WatcherSchema = new Schema(
   {
-    birdId: {type: Schema.Types.ObjectId, required: true, ref: 'Bird'},
-    creatorId: {type: Schema.Types.ObjectId, required: true, ref: 'Account'}
+    birdId: { type: Schema.Types.ObjectId, required: true, ref: 'Bird' },
+    creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
   },
-  {timestamps: true, toJSON: {virtuals: true}}
+  { timestamps: true, toJSON: { virtuals: true } }
 )
 
+WatcherSchema.virtual('creator', {
+  localField: 'creatorId',
+  foreignField: '_id',
+  justOne: true,
+  ref: 'Account'
+})
+
 // NOTE this is saying that only one thing in MongoDb can exist with this creatorId and this birdId --> the same person cant see that bird twice 
-WatcherSchema.index({birdId: 1, creatorId: 1}, {unique: true})
+WatcherSchema.index({ birdId: 1, creatorId: 1 }, { unique: true })

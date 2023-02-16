@@ -3,12 +3,12 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest } from "../utils/Errors.js"
 
 
-class BirdsService{
+class BirdsService {
   async getBirdById(birdId) {
     const bird = await dbContext.Birds.findById(birdId)
-    .populate('Creator', 'name picture')
-    .populate('watchCount')
-    if(!bird){
+      .populate('Creator', 'name picture')
+      .populate('watchCount')
+    if (!bird) {
       throw new BadRequest("Bird not found!")
     }
     return bird
@@ -20,10 +20,10 @@ class BirdsService{
     return newBird
   }
 
-  async getAllBirds(){
+  async getAllBirds() {
     const birds = await dbContext.Birds.find()
-    .populate('Creator', 'name picture')
-    .populate('watchCount')
+      .populate('Creator', 'name picture')
+      .populate('watchCount')
     return birds
   }
 }
