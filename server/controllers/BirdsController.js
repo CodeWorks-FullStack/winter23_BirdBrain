@@ -9,6 +9,7 @@ export class BirdsController extends BaseController{
     this.router
       // Routes go here
       .get('', this.getAllBirds)
+      .get('/:birdId', this.getBirdById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createBird)
   }
@@ -18,6 +19,16 @@ export class BirdsController extends BaseController{
   try {
     const birds = await birdsService.getAllBirds()
     return res.send(birds)
+  } catch (error) {
+    next(error)
+    }
+  }
+
+  async getBirdById (req, res, next) {
+  try {
+    const birdId = req.params.birdId
+    const bird = await birdsService.getBirdById(birdId)
+    return res.send(bird)
   } catch (error) {
     next(error)
     }
