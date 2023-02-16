@@ -1,4 +1,5 @@
 import { appState } from "../AppState.js";
+import { Bird } from "../Models/Bird.js";
 import { birdsService } from "../Services/BirdsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { Pop } from "../Utils/Pop.js";
@@ -9,6 +10,8 @@ function _drawBirds() {
   appState.birds.forEach((bird) => (template += bird.birdCardTemplate));
   setHTML("birds", template);
 }
+
+// DRAW ACTIVE BIRD
 
 export class BirdsController {
   constructor() {
@@ -28,7 +31,7 @@ export class BirdsController {
   }
 
   getBirdForm() {
-    setHTML("birdContents");
+    setHTML("birdContent", Bird.createBirdForm());
   }
 
   async reportBird() {

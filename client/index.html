@@ -15,31 +15,50 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
-        <a class="navbar-brand" href="#">
-          <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
+    <nav class="navbar birdNav navbar-expand row">
+
+      <div class="col-6 col-md-2">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/parrot-1521946-1288778.png " height="60" alt=""
             loading="lazy">
-          <span class="ml-2">Winter23-BirdBrain</span>
+          <span class="navFontSize">BirdBrain</span>
         </a>
+      </div>
+
+      <div class="col-1">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <!-- NAVLINKS -->
-          </div>
+      </div>
+
+      <div class="collapse navbar-collapse col-1" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <!-- NAVLINKS -->
         </div>
+      </div>
+
+      <!-- STUB BUTTON TO OPEN BIRD FORM MODAL -->
+      <!-- STUB MAKE SURE YOU HAVE YOU ONCLICK SET UP TO YOUR CONTROLLER -->
+      <div class="col-2 col-md-1 text-center">
+        <button type="button" class="btn btn-primary-outline" data-bs-toggle="modal" data-bs-target="#birdModal"
+          onclick="app.birdsController.getBirdForm()">
+          <h1 class="navFontSize">🦅</h1>
+        </button>
+      </div>
+
+      <div class="col-3 col-md-5">
         <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-      </nav>
+      </div>
+    </nav>
     </header>
-    <main class="container-fluid bg-primary" id="app">
+    <main class="container-fluid sky" id="app">
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#birdModal">
+      <!-- GIVE THE BUTTON AN IMAGE -->
+      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#birdModal">
         Launch demo modal
-      </button>
+      </button> -->
 
       <!-- Modal -->
       <div class="modal fade" id="birdModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -48,7 +67,7 @@
 
           <div class="modal-content" id="birdContent">
 
-            <div class="modal-header">
+            <!-- <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">Report Bird</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -86,7 +105,7 @@
                 <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
               </div>
 
-            </form>
+            </form> -->
 
 
           </div>
@@ -106,10 +125,11 @@
       </div>
 
     </main>
-    <footer class="container-fluid bg-dark text-light">
+
+    <footer class="container-fluid grass">
       <div class="row text-center">
         <div class="col">
-          <p><small>Made with 💖 by CodeWorks</small></p>
+          <p><small>Made with 💖 by 🐦</small></p>
         </div>
       </div>
     </footer>
